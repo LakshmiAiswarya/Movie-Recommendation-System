@@ -1,4 +1,4 @@
-# Hybrid-Movie-Recommendation-System
+# Movie-Recommendation-System
 
 
 **Content-based movie recommender using TF-IDF and semantic embeddings, with genre-diverse re-ranking**
