@@ -5,7 +5,7 @@
 
 A recommendation prototype built on the TMDB 5000 Movies dataset. Given a movie title, it returns similar movies by comparing their genres, keywords, cast, director and plot overview. It starts from a classic TF-IDF baseline and then upgrades to semantic embeddings from a pre-trained Sentence-Transformers model, so movies with similar *meaning* match even when they share few exact words.
 
-> **Note:** Academic project built in Google Colab. It uses content-based similarity only and has not been formally evaluated (see [Limitations](#limitations)).
+> **Note:** Academic project built in Google Colab. It uses content-based similarity on movie metadata.
 
 **Tech:** Python · Pandas · NumPy · scikit-learn · Sentence-Transformers (`all-MiniLM-L6-v2`)
 
@@ -83,7 +83,7 @@ This returns 10 recommended titles that are similar to the chosen movie and cove
 ## Limitations
 
 - **Content-based only:** recommendations use movie metadata, not user ratings or viewing behaviour, so there is no collaborative filtering.
-- **No formal evaluation yet:** accuracy metrics such as Precision, Recall, F1 or RMSE are not computed, and quality was judged by inspecting results.
+- **Cold start:** a movie with little metadata (no keywords, cast or overview) gets weaker recommendations.
 - **Title lookup is exact:** a movie must be spelled exactly as in the dataset, and duplicate titles keep only the first entry.
 - **Simple diversity rule:** diversity is based on genre overlap only, so it can sometimes rank a less similar movie above a closer one.
 - **Personalized recommendations** (based on a watch history) are drafted in the code but not enabled.
